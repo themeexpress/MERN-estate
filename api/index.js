@@ -22,8 +22,17 @@ app.listen(3000, () => {
 
 app.use(express.json());
 
-// test route
+// all routes
 app.use('/api/user', userRouter);
-
-// Auth Router
 app.use('/api/auth', authRouter);
+
+// Error middleware
+app.use((err, req, res, next) => {
+    const sttusCode = err.statusCode || 500;
+    const message = err.message || "Internal Server Error";
+    return res.status(sttusCode).json({
+        message: false,
+        statusCode: 
+        message,
+    });
+});
