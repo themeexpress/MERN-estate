@@ -13,7 +13,6 @@ export default function SignOut() {
       [e.target.id]: e.target.value,
     });
   };
-  //console.log(formData);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
@@ -27,7 +26,6 @@ export default function SignOut() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      console.log(data);
       if (data.success == false){
         setError(data.message);
         setLoading(false);
@@ -46,7 +44,7 @@ export default function SignOut() {
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl text-center font-semibold my-7'>SignUp</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-        <input type='text' placeholder='user Name'
+        <input type='text' placeholder='User Name'
         className='border p-3 rounded-lg' id='username' onChange={handleChange}/>
 
         <input type='text' placeholder='Email'
@@ -63,7 +61,6 @@ export default function SignOut() {
         </Link>
       </div>
       {error && <p className='text-red-500 mt-5'>{error}</p>}
-
     </div>
   )
 }
