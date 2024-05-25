@@ -8,7 +8,7 @@ import 'swiper/css/bundle';
 import { FaBath, FaBed, FaChair, FaMapMarkedAlt, FaMapMarkerAlt, FaParking, FaShare } from 'react-icons/fa';
 import { Contact } from '../components/Contact';
 
-export const Listing = () => {
+export default function Listing () {
     SwiperCore.use([Navigation]);
     const [listing, setListing] = useState(null);
     const [loading, setLoading] = useState(false);

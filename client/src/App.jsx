@@ -9,16 +9,17 @@ import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
 import CreateListing from './pages/CreateListing';
 import UpdateListing  from './pages/UpdateListing';
-import { Listing } from './pages/Listing';
+import Listing from './pages/Listing';
 import Search from './pages/Search';
 
 export default function App() {
-  return <BrowserRouter>
+  return (
+    <BrowserRouter>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='search' element={<Search/>}></Route> 
+        <Route path='/search' element={<Search/>}></Route> 
         <Route path="/listing/:listingId" element={<Listing />} />
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
@@ -28,5 +29,6 @@ export default function App() {
           <Route path='/update-listing/:listingId' element={<UpdateListing />} />
         </Route>
       </Routes>
-    </BrowserRouter>;
+    </BrowserRouter>
+  );
 }
