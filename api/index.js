@@ -17,15 +17,14 @@ mongoose.connect(process.env.MONGO).then(() => {
         console.log(err)
 })
 
-const __dirname = path.resolve()
+const __dirname = path.resolve();
 const app = express();
+app.use(express.json());
+app.use(cookieParser());
 
 app.listen(3000, () => {
     console.log("server is running on port 3000!!!")
 })
-
-app.use(express.json());
-app.use(cookieParser());
 
 // all routes
 app.use('/api/user', userRouter);
